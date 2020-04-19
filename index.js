@@ -1,8 +1,10 @@
 function drumClick(event) {
   var file;
-  // console.log(this.innerHTML);
-  // console.log(event.key);
-  switch (this.innerHTML || event.key) {
+  console.log(this.innerHTML);
+  console.log(event.key);
+  var key = this.innerHTML || event.key
+  addAnimation(key);
+  switch (key) {
     case 'w':
       file = 'sounds/crash.mp3';
       break;
@@ -30,8 +32,21 @@ function drumClick(event) {
   audio.play();
 }
 
+function addAnimation(currentKey) {
+  var activeButton = document.querySelector("."  + currentKey);
+  activeButton.classList.add("pressed");
+
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
+
 var allButtons = document.querySelectorAll(".drum");
 
 for (var i = 0; i < allButtons.length; i++) {
   allButtons[i].addEventListener("click", drumClick);
 }
+
+document.addEventListener("keydown", function(event) {
+  drumClick(event);
+})

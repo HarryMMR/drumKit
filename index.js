@@ -2,8 +2,8 @@
 
 function drumClick(event) {
   var file;
-  console.log(this.innerHTML);
-  console.log(event.key);
+  // console.log(this.innerHTML);
+  // console.log(event.key);
   var key = this.innerHTML || event.key
   addAnimation(key);
   switch (key) {

@@ -1,3 +1,5 @@
+  var audio = new Audio();
+
 function drumClick(event) {
   var file;
   console.log(this.innerHTML);
@@ -28,7 +30,7 @@ function drumClick(event) {
       break;
   }
 
-  var audio = new Audio(file);
+  audio.src = file;
   audio.play();
 }
 
